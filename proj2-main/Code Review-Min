@@ -1,1 +1,92 @@
 
+Purpose of this block is to find wether num_a is small or not
+if-else loop
+#!/bin/bash
+   num_a=100
+   num_b=200
+   if [ $num_a -lt $num_b ]; then //compares both variables and sees if it yields true
+   echo "$num_a is less than $num_b!"
+   fi // closes if cond block
+
+it can be intended like :
+
+num_a=100
+num_b=200
+if [ $num_a -lt $num_b ];
+
+then
+echo "$num_a is less than $num_b!"
+fi
+
+-----------------------------------------------------------------------------
+
+Here the block executes untill the count equal to 5
+while loop
+#!/bin/bash
+   valid=true
+   count=1
+   while [ $valid ]   // since $valid is true while loop will be executed
+   do
+   echo $count       // prints the value of "count"
+   if [ $count -eq 5 ];   // it checks wether count equal to 5 or not if it is equal them breaks the loop and comes out of block else increaments the value of count and continues the loop
+   then
+   break
+   fi
+   ((count++))       //incrementing the count value
+   done
+
+It can be intended like:
+
+valid=true
+   count=1
+   while [ $valid ]   
+   do
+echo $count
+if [ $count -eq 5 ];
+
+then
+break
+fi
+((count++))   
+   done
+
+-------------------------------------------------------------------
+
+Here the value of counter is printed from 10 to 1
+for loop
+#!/bin/bash
+   for (( counter=10; counter>0; counter-- )) // Here counter is assigned with 10 and for every iteration the value will be decreamented
+   do
+   echo -m "$counter " // prints the value of the counter
+   done
+   printf "/n" // makes a new line
+
+it can be intended like :
+
+for (( counter=10; counter>0; counter-- ))  
+
+do
+echo -m "$counter "   
+done
+printf "/n"
+
+--------------------------------------------------------------------------
+
+Here a is printed from 0 to 9
+until loop
+#! /bin/bash
+   a=0
+   until [ ! $a -1t 10 ]   //untill block is executed till the expression inside becomes true. firstly ($a <10) is executed. since $a =0 here so 0<10 will be true. now since it is like !($a -lt 10) it means !(true) which means false. So the inside expression is false the code will be executed. once it becomes true the block will stop executed
+   do
+   echo $a           // prints the value of $a
+   a='expr $a + 1'       // here 1 is added to existing value of $a
+   done
+
+you can better write this block with intendation like this
+
+    a=0
+    until [ ! $a -1t 10 ]
+    do
+          echo $a           
+          a='expr $a + 1'       
+    done
